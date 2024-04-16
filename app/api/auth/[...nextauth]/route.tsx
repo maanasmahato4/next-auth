@@ -3,6 +3,9 @@ import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import NextAuth from "next-auth/next";
+import DBConnection from "@/lib/database/database";
+
+DBConnection();
 
 export const authOptions: AuthOptions = {
   providers: [
