@@ -2,6 +2,7 @@
 
 import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
 import Link from "next/link";
+import { AuthButton } from "./auth-button";
 
 const Appbar = () => {
   return (
@@ -17,7 +18,9 @@ const Appbar = () => {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end"></NavbarContent>
+      <NavbarContent justify="end">
+        <AuthButton />
+      </NavbarContent>
     </Navbar>
   );
 };

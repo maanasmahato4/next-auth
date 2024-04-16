@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { NextUiProvider } from "@/components/nextprovider";
 import Appbar from "@/components/navbar";
+import AuthSessionProvider from "@/components/auth-session-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Appbar />
-        <NextUiProvider>{children}</NextUiProvider>
-      </body>
+      <AuthSessionProvider>
+        <body className={inter.className}>
+          <div className="">
+            <Appbar />
+          </div>
+          <div className="flex-grow flex items-center justify-center">
+            <NextUiProvider>{children}</NextUiProvider>
+          </div>
+        </body>
+      </AuthSessionProvider>
     </html>
   );
 }
